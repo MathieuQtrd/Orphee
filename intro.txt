@@ -1,0 +1,29 @@
+ROLES DES LANGAGES :
+--------------------
+
+FRONT :
+-------
+HTML : Structure d'une page (zones, régions, blocks, médias, liens ...)
+CSS  : Mise en forme (couleurs, bordures, tailles ...)
+JS   : animations, intéractivités (slider, controles, jeux ...)
+
+BACK :
+------
+SQL  : MySQL (SGBD Systeme de gestion de base de données, SQLServe, NoSQL, ...) Communication avec les BDD (Récupération, création, modification, suppression)
+PHP  : (Python, Java, .NET, Node.js ...) Fonctionnalités (Formulaires, sécurité, modèle de page ...)
+
+
+3 Solutions pour faire un site web :
+------------------------------------
+- From scratch : on part de zéro, le dev fait tout à la main. Grosse liberté, dev très long (gros budget)
+- Framework : du code déjà prêt, moins de liberté, temps de dév accéléré, le dev monte en compétence sur l'outil. (Laravel, Symfony, React, ...)
+- CMS : Content Managing System. Wordpress, Drupal, Joomla, prestashop, Magento ... Un outil nous permettant d'avoir un site fonctionnel en quelques minutes. Le dev ensuite va modifier afin de répondre aux besoins client. Temps de dev très rapide, moins de liberté.
+
+Serveur Local :
+---------------
+W indows    (OS)                X cross platform    M ac
+A apache    (Serveur web)       AMPP                AMP
+M ysql      (SGBD)
+P hp        (back)
+
+LAMP (Linux)

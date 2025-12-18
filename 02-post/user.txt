@@ -1,0 +1,5 @@
+Mathieu ||| $2y$10$dkIwbA9OJYMus99jxmO3HOjkW5BmIhf60FlwIpiofcdB3.4KiSFkK ||| Quittard ||| Mathieu ||| mathieu@mail.fr
+Albert ||| $2y$10$1dc3K6LG6YXOTs5CbzOJAuz5IqkMbEZz5C6qPcQEfmOQe3dEXC1fi ||| Durand ||| Albert ||| albert@mail.fr
+julia ||| $2y$10$ztyv4YWTX3jVbvB99udUAem5P/k2irv8GuDtE9VPzaCKl82GHijO2 ||| Durand ||| Julia ||| julia@mail.fr
+marcel ||| $2y$10$PK9AA6cHrGyiCoWgfTvnBOem4NFjBHg.AF/MffU6S0uMw62fnJdBK ||| Dupond ||| Marcel ||| marcel@mail.fr
+Admin ||| $2y$10$KqHOF1LZI6co49dgv2.G9.wUsWk1ubSjRBgYhnQ7WjktvtvL/H0FK ||| Admin ||| Admin ||| admin@mail.fr
