@@ -1,0 +1,16 @@
+{
+    "name": "initiation/php-composer",
+    "description": "Decouverte de composer",
+    "type": "project",
+    "require": {
+        "fakerphp/faker": "^1.24",
+        "symfony/var-dumper": "^7.4",
+        "phpmailer/phpmailer": "^7.0"
+    },
+    "authors": [
+        {
+            "name": "Mathieu Qtrd",
+            "email": "mathieu.qtrd@gmail.com"
+        }
+    ]
+}

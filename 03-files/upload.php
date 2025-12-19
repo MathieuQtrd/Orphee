@@ -1,5 +1,36 @@
 <?php
-    echo '<pre>'; print_r($_FILES); echo '</pre>';
+
+    $error = '';
+    // echo uniqid();
+
+    // echo '<pre>'; print_r($_FILES); echo '</pre>';
+    if(!empty($_FILES['image']['name'])) {
+        $extensions_valides = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
+        $extension = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+
+        // echo '<pre>'; print_r($extension); echo '</pre>';
+
+        if(in_array($extension, $extensions_valides)) {
+
+            $nom_image = uniqid() . '.' . $extension;
+
+            // copy($_FILES['image']['tmp_name'], __DIR__ . '/img/' . $nom_image);
+            move_uploaded_file($_FILES['image']['tmp_name'], 'img/' . $nom_image);
+
+            // on a enregistré l'image on redirige vers la page galerie.php
+            // la fonction header() permet notamment de rediriger vers une url, cette fonction doit obligatoirement être exécutée AVANT le moindre affichage dans la page (html ou même un espace ...)
+            // /!\ en local vous pouvez ne pas avoir cette erreur.
+            header('location:galerie.php');
+
+
+        } else {
+            $error = 'Extension de l\'image invalide, extensions acceptées : jpg, jpeg, png, gif, webp';
+        }
+
+
+    }
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -18,6 +49,11 @@
                 <h1 class="text-primary">Charger votre image</h1>
 
                 <form action="" method="POST" enctype="multipart/form-data" class="p-3 border my-5">
+
+                    <?php if (!empty($error)) : ?>
+                        <div class="alert alert-danger"><?= $error ?></div>
+                    <?php endif ?>
+
                     <div class="form-group">
                         <label for="image">Image</label>
                         <input type="file" name="image" class="form-control">
