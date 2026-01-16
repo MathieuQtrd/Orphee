@@ -9,7 +9,7 @@ JS   : animations, intéractivités (slider, controles, jeux ...)
 
 BACK :
 ------
-SQL  : MySQL (SGBD Systeme de gestion de base de données, SQLServe, NoSQL, ...) Communication avec les BDD (Récupération, création, modification, suppression)
+SQL  : MySQL (SGBD Systeme de gestion de base de données, SQLServer, NoSQL, ...) Communication avec les BDD (Récupération, création, modification, suppression)
 PHP  : (Python, Java, .NET, Node.js ...) Fonctionnalités (Formulaires, sécurité, modèle de page ...)
 
 

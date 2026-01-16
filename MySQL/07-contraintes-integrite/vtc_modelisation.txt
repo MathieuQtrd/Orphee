@@ -1,0 +1,57 @@
+Les cardinalités 
+----------------
+
+1 conducteur - 0 véhicule : Zero to One
+1 conducteur - 1 véhicule : One to One 
+1 conducteur - n véhicule : One to Many
+
+1 véhicule - 0 conducteur 
+1 véhicule - 1 conducteur
+1 véhicule - n conducteur
+
+1, 0 - ZeroToOne
+1, 0.1 - ZeroToOne ou OneToOne
+1, 1 - OneToOne
+n, n - ManyToMany
+1, n - OneToMany
+n, 1 = ManyToOne
+
+
+- Créer cette BDD via votre interface (PHPMyAdmin ou autre ...)
+    - id_conducteur, id_association et id_vehicule sont des clés primaires (PK) en auto increment : index Primary + AI
+    - id_vehicule et id_conducteur de la table association_vehicule_conducteur sont des clés étrangère (FK) : index - index
+    - immatriculation doit etre unique : index - unique
+
+conducteur 
++---------------+----------+-----------+
+| id_conducteur | prenom   | nom       |
++---------------+----------+-----------+
+|             1 | Julien   | Avigny    |
+|             2 | Morgane  | Alamia    |
+|             3 | Philippe | Pandre    |
+|             4 | Amelie   | Blondelle |
+|             5 | Alex     | Richy     |
++---------------+----------+-----------+
+
+association_vehicule_conducteur
++----------------+-------------+---------------+
+| id_association | id_vehicule | id_conducteur |
++----------------+-------------+---------------+
+|              1 |         501 |             1 |
+|              2 |         502 |             2 |
+|              3 |         503 |             3 |
+|              4 |         504 |             4 |
+|              5 |         501 |             3 |
++----------------+-------------+---------------+
+
+vehicule
++-------------+---------------------+---------+---------+-----------------+
+| id_vehicule | marque		   		| modele  | couleur | immatriculation |
++-------------+---------------------+---------+---------+-----------------+
+|         501 | Peugeot             | 807     | noir    | AB-355-CA       |
+|         502 | Citroen             | C8      | bleu    | CE-122-AE       |
+|         503 | Mercedes            | Cls     | vert    | FG-953-HI       |
+|         504 | Volkswagen          | Touran  | noir    | SO-322-NV       |
+|         505 | Skoda               | Octavia | gris    | PB-631-TK       |
+|         506 | Volkswagen          | Passat  | gris    | XN-973-MM       |
++-------------+---------------------+---------+---------+-----------------+

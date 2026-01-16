@@ -1,0 +1,29 @@
+Faire une application de type dashboard
+---------------------------------------
+- un module utilisateur
+    - inscription  (le pseudo et l'email doivent être unique en bdd)
+    - connexion
+    - profil
+
+- un module gestion des taches et commentaires
+    - index
+        - un bouton permettant d'aller sur un page permettant de créer une nouvelle tache.
+        - listing des taches sous forme de tableau ou de liste
+            - un lien permettant d'aller vers la page detail de la tache  
+        - page detail :
+            - la description de la tache (image, titre ...)
+            - la possibilité de modifier son statut (bouton, form)
+            - Un formulaire permettant de laisser un message (pouur l'enregistrement vous devrez fournir l'id de la tache et l'id du user)
+            - affichage des messages en bas de page
+                - du plus récent au plus ancien
+                - on affiche l'auteur, la date (au format fr) et le message
+                - possibilité de supprimer un message (uniquement pour l'auteur) 
+            - un bouton permettant de supprimer la tache (uniquement si le status est : pending)
+
+            - Pour aller plus loin, un bouton permettant de modifier la description et/ou le titre et/ou l'image
+        
+
+
+- aucune page ne doit être accessible à un user non connecté sauf inscription et connexion 
+
+- Il serait bien de créer la connexion BDD sur un fichier en include que l'on appelle sur toutes nos page
