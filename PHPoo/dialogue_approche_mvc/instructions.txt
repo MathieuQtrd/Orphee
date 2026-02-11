@@ -1,0 +1,6 @@
+MVC : Model View Controller
+---------------------------
+Model       => Les relations avec la BDD (les requetes)
+Controller  => la logique de l'application (le code PHP)
+View        => l'affichage (le code HTML)
+
