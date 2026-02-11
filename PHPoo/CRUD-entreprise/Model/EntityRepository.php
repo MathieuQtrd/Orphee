@@ -33,6 +33,14 @@ class EntityRepository
         return $data->fetchAll(\PDO::FETCH_OBJ);
     }
 
+    // Pour récupérer un seul employé
+    public function selectOne($id) 
+    {
+        $data = $this->getDb()->prepare("SELECT * FROM employes WHERE id_employes = :id");
+        $data->bindParam(':id', $id);
+        $data->execute();
 
+        return $data->fetch(\PDO::FETCH_OBJ);
+    }
 
 }

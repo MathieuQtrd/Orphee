@@ -19,11 +19,22 @@ class Controller
     {
         if(!empty($_GET['action'])) {
             $action = $_GET['action'];
+
+            if(!empty($_GET['id'])) {
+                $id = $_GET['id'];
+            } else {
+                $id = null;
+            }
+
         } else {
             $action = 'show';
         }
 
         if($action == 'show') {
+            $this->show();
+        } elseif($action == 'details') {
+            $this->details($id);
+        } else {
             $this->show();
         }
 
@@ -59,4 +70,21 @@ class Controller
             'data'  => $this->dbEntityRepository->selectAll(),
         ]);
     }
+
+    public function details($id) 
+    {
+        $data = $this->dbEntityRepository->selectOne($id);
+
+        if(!$data) {
+            header('location:index.php');
+        }
+
+        $this->render('layout.php', 'details.php', [
+            'title' => 'Affichage de l\'employé : ',
+            'data'  => $data,
+        ]);
+
+    }
+
+
 }
