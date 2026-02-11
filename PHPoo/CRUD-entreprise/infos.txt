@@ -1,0 +1,25 @@
+MVC : Model View Controller
+-----
+Model => les relations avec la BDD (les requetes)
+Controller => la logique de l'application (le code php)
+View => l'affichage (le code html)
+
+- App/
+    - config.xml (les informations de connexion à la bdd)
+- Controller/
+    - Controller.php (la logique php)
+- Model/
+    - EntityRepository.php (les requetes sql)
+- View/
+    - layout.php (notre template)
+- public/
+    - css/
+        - style.css
+    - js/
+        - script.js 
+    - images/
+
+index.php (la porte d'entrée de l'application)
+Autoload.php 
+
+
