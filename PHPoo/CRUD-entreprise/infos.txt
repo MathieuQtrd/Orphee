@@ -22,4 +22,16 @@ View => l'affichage (le code html)
 index.php (la porte d'entrée de l'application)
 Autoload.php 
 
+EXERCICES :
+-----------
+- Permettre la possibilité de supprimer un employe
 
+- Pour le formulaire d'insert et d'update les services doivent une liste déroulante
+
+- Permettre la creation d'un nouvel employe
+    - une methode qui affiche un formulaire de création
+    - une methode qui permet l'enregistrement en bdd de ce nouvel employé
+
+- Permettre la modification d'un employé 
+    - une methode qui affiche un formulaire de modification contenant les informations de l'employé qui doit être modifié
+    - une methode qui permet la modification en bdd de ce nouvel employé

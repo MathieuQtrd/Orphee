@@ -43,4 +43,50 @@ class EntityRepository
         return $data->fetch(\PDO::FETCH_OBJ);
     }
 
+    // Pour enregistrer un nouvel employé
+    public function insertOne($prenom, $nom, $service, $sexe, $salaire) 
+    {
+        $data = $this->getDb()->prepare("INSERT INTO employes (id_employes, prenom, nom, service, sexe, salaire, date_embauche) VALUES (NULL, :prenom, :nom, :service, :sexe, :salaire, now())");
+        $data->bindParam(':prenom', $prenom);
+        $data->bindParam(':nom', $nom);
+        $data->bindParam(':service', $service);
+        $data->bindParam(':sexe', $sexe);
+        $data->bindParam(':salaire', $salaire);
+        $data->execute();
+
+        return $data->rowCount();
+    }
+
+    // Pour modifier un employé
+    public function updateOne($id_employes, $prenom, $nom, $service, $sexe, $salaire) 
+    {
+        $data = $this->getDb()->prepare("UPDATE employes SET prenom = :prenom, nom = :nom, service = :service, sexe = :sexe, salaire = :salaire WHERE id_employes = :id_employes");
+        $data->bindParam(':id_employes', $id_employes);
+        $data->bindParam(':prenom', $prenom);
+        $data->bindParam(':nom', $nom);
+        $data->bindParam(':service', $service);
+        $data->bindParam(':sexe', $sexe);
+        $data->bindParam(':salaire', $salaire);
+        $data->execute();
+
+        return $data->rowCount();
+    }
+
+    // Pour supprimer un employé
+    public function deleteOne($id) 
+    {
+        $data = $this->getDb()->prepare("DELETE FROM employes WHERE id_employes = :id");
+        $data->bindParam(':id', $id);
+        $data->execute();
+
+        return $data->rowCount();
+    }
+
+    // Récupération des services
+    public function selectServices()
+    {
+        $data = $this->getDb()->query("SELECT DISTINCT service FROM employes");
+        return $data->fetchAll(\PDO::FETCH_OBJ);
+    }
+
 }

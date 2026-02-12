@@ -34,6 +34,12 @@ class Controller
             $this->show();
         } elseif($action == 'details') {
             $this->details($id);
+        } elseif($action == 'delete') {
+            $this->delete($id);
+        } elseif($action == 'add') {
+            $this->add();
+        } elseif($action == 'update') {
+            $this->update($id);
         } else {
             $this->show();
         }
@@ -71,6 +77,112 @@ class Controller
         ]);
     }
 
+    public function add()
+    {
+        $errors = [];
+        $messages = '';
+        if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['sexe']) && isset($_POST['service']) && isset($_POST['salaire']) ) {
+            $prenom = trim($_POST['prenom']);
+            $nom = trim($_POST['nom']);
+            $sexe = trim($_POST['sexe']);
+            $service = trim($_POST['service']);
+            $salaire = trim($_POST['salaire']);
+
+            if(empty($prenom)) {
+                $errors[] = 'Le prénom est obligatoire';
+            }
+            if(empty($nom)) {
+                $errors[] = 'Le nom est obligatoire';
+            }
+            if(!is_numeric($salaire)) {
+                $errors[] = 'Le salaire est obligatoire et doit être numérique';
+            }
+
+            if(empty($errors)) {
+                $this->dbEntityRepository->insertOne($prenom, $nom, $service, $sexe, $salaire) ;
+                $messages .= $prenom . ' ' . $nom  . ' a bien été enregistré dans l\'entreprise';
+            } else {
+                foreach($errors as $error) {
+                    $messages .= $error . '<br>';
+                }
+            }
+
+        }
+
+        $data = $this->dbEntityRepository->selectServices();
+
+        $services = [];
+
+        foreach($data as $service) {
+            $services[] = $service->service;
+        }
+
+
+        $this->render('layout.php', 'add.php', [
+            'title' => 'Ajouter un employé',
+            'services'  => $services,
+            'messages'  => $messages,
+        ]);
+    }
+
+    public function update($id)
+    {
+        $errors = [];
+        $messages = '';        
+
+        if(isset($_POST['id_employes']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['sexe']) && isset($_POST['service']) && isset($_POST['salaire']) ) {
+            $id_employes = trim($_POST['id_employes']);
+            $prenom = trim($_POST['prenom']);
+            $nom = trim($_POST['nom']);
+            $sexe = trim($_POST['sexe']);
+            $service = trim($_POST['service']);
+            $salaire = trim($_POST['salaire']);
+
+            if(empty($prenom)) {
+                $errors[] = 'Le prénom est obligatoire';
+            }
+            if(empty($nom)) {
+                $errors[] = 'Le nom est obligatoire';
+            }
+            if(!is_numeric($salaire)) {
+                $errors[] = 'Le salaire est obligatoire et doit être numérique';
+            }
+
+            if(empty($errors)) {
+                $this->dbEntityRepository->updateOne($id_employes, $prenom, $nom, $service, $sexe, $salaire) ;
+                // $messages .= 'Mise à jour des informations de ' . $prenom . ' ' . $nom ;
+                header('location:index.php');
+            } else {
+                foreach($errors as $error) {
+                    $messages .= $error . '<br>';
+                }
+            }
+
+        }
+
+        $dataEmploye = $this->dbEntityRepository->selectOne($id);
+
+        if(!$dataEmploye) {
+            header('location:index.php');
+        }
+
+        $data = $this->dbEntityRepository->selectServices();
+
+        $services = [];
+
+        foreach($data as $service) {
+            $services[] = $service->service;
+        }
+
+
+        $this->render('layout.php', 'update.php', [
+            'title' => 'Modifier un employé',
+            'services'  => $services,
+            'messages'  => $messages,
+            'data'      => $dataEmploye,
+        ]);
+    }
+
     public function details($id) 
     {
         $data = $this->dbEntityRepository->selectOne($id);
@@ -84,6 +196,13 @@ class Controller
             'data'  => $data,
         ]);
 
+    }
+
+    public function delete($id) 
+    {
+        $data = $this->dbEntityRepository->deleteOne($id);
+
+        header('location:index.php');
     }
 
 

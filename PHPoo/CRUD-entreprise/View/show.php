@@ -21,7 +21,7 @@
                 <th>Sexe</th>
                 <th>Salaire</th>
                 <th>Date embauche</th>
-                <th>Détails</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +34,11 @@
                     <td><?= $ligne->sexe ?></td>
                     <td><?= $ligne->salaire ?> €</td>
                     <td><?= $ligne->date_embauche ?></td>
-                    <td><a href="?action=details&id=<?= $ligne->id_employes ?>">Détails</a></td>
+                    <td>
+                        <a href="?action=details&id=<?= $ligne->id_employes ?>" class="btn btn-primary" title="Voir les informations détaillées de <?= $ligne->prenom ?> <?= $ligne->nom ?>"><i class="bi bi-eye"></i></a>
+                        <a href="?action=update&id=<?= $ligne->id_employes ?>" class="btn btn-warning" title="Modifier les informations détaillées de <?= $ligne->prenom ?> <?= $ligne->nom ?>"><i class="bi bi-pencil"></i></a>
+                        <a href="?action=delete&id=<?= $ligne->id_employes ?>" class="btn btn-danger" title="Supprimer l'employé : <?= $ligne->prenom ?> <?= $ligne->nom ?>"><i class="bi bi-trash" onclick="return(confirm('Etes-vous sûr ?'))"></i></a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
