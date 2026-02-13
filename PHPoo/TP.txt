@@ -1,0 +1,13 @@
+- Faire une application en MVC avec PHPoo
+- Faire une modelisation
+    - Penser à joindre l'export SQL
+- Sujet au choix (Shop | Blog | ...)
+- Inscription | Connexion obligatoire + gestion utilisateur (roles, statut, restriction d'accès ...)
+- Une gestion de fichier (avatar pour utilisateur | image produit | image pour un article de blog | ...)
+- Plusieurs controller
+- Interdiction d'utiliser un framework existant
+- Possibilité d'utiliser des vendor (pas d'ORM)
+- En fin de journée un zip (avec nom et prénom) ou un lien github  
+- Possibilité de travailler en groupe (2 personnes maximum)
+- à la racine un README.md avec vos choix et toute précision nécessaire.
+- Un rendu avec 0 css peut valoir valoir la note maximale !
